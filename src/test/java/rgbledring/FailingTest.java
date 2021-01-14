@@ -11,7 +11,8 @@ class FailingTest {
 	}
 
 	@Test
-	void testAnotherDexThing() {
-		assertThat("Stefan").isEqualTo("dex78");
+	void testAnotherThing() {
+		//Sorry, second test for verifying that my git ssh setup is finally correct
+		assertThat("Timo").isEqualTo("error_empire");
 	}
 }
