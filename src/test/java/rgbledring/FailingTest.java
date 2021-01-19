@@ -15,4 +15,10 @@ class FailingTest {
 		//Sorry, second test for verifying that my git ssh setup is finally correct
 		assertThat("Timo").isEqualTo("error_empire");
 	}
+	
+	@Test
+	void testAnotherBoolean() {
+		//Sorry, second test for verifying that my git ssh setup is finally correct
+		assertThat(true).isEqualTo(Boolean.TRUE);
+	}
 }
