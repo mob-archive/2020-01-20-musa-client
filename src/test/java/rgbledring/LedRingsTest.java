@@ -77,6 +77,10 @@ public class LedRingsTest {
 		if (level == 0) {
 			leds[0] = false;
 			leds[1] = false;
+			if (leds.length > 2) {
+				leds[2] = false;
+				leds[3] = false;
+			}
 		} else if (level > 0) {
 			leds[0] = true;
 		}
