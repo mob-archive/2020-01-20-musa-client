@@ -16,7 +16,7 @@ class FailingTest {
 	@Test
 	void testAnotherThing() {
 		//Sorry, second test for verifying that my git ssh setup is finally correct
-		assertThat("Timo").isEqualTo("error_empire");
+		assertThat("error_empire").isEqualTo("Timo");
 	}
 	
 	@Test
