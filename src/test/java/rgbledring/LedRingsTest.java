@@ -49,12 +49,20 @@ public class LedRingsTest {
 	}
 
 	@Test
-	void testGivenRingOfSize4_whenLevelIsSetTo100Then0_thenAllLED4AreOff() {
+	void testGivenRingOfSize4_whenLevelIsSetTo100Then0_thenAllLEDsAreOff() {
 		givenLEDRingOfSize(4);
 		whenLevelIsSetTo(100);
 		whenLevelIsSetTo(0);
 		thenLEDsAre(false, false, false, false);
-	}	
+	}
+
+	@Test
+	void testGivenRingOfSize4_whenLevelIsSetTo100Then51_thenOnlyLED4AreOff() {
+		givenLEDRingOfSize(4);
+		whenLevelIsSetTo(100);
+		whenLevelIsSetTo(51);
+		thenLEDsAre(true, true, true, false);
+	}
 
 
 	private void thenLEDsAre(boolean... expected) {
@@ -65,6 +73,13 @@ public class LedRingsTest {
 		leds = new boolean[size];
 	}
 
+	// 4 LEDs
+	//level = 80;
+	//
+	//(80 / 100) * 4 = Anzahl zu leuchtende LEDs
+	//
+	//int amountLEDsOn = (sliderLevel/maxSliderLevel) * leds.length;
+	//
 	private void whenLevelIsSetTo(int level) {
 //		int size = leds.length;
 //		int highestIndexToTurnOn = size * (level/100);
@@ -89,6 +104,7 @@ public class LedRingsTest {
 			leds[1] = true;
 			if (leds.length > 2) {
 				leds[2] = true;
+				leds[3] = false;
 			}
 		}
 		if (level == 100 && leds.length > 2) {
