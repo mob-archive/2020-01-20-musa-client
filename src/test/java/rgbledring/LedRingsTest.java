@@ -45,21 +45,18 @@ public class LedRingsTest {
 		Assertions.assertThat(leds).isEqualTo(expected);
 	}
 
-	private void thenLEDIsOn(int index) {
-		Assertions.assertThat(leds[index]).isTrue();
-	}
-
-	private void thenLEDisOff(int index) {
-		Assertions.assertThat(leds[index]).isFalse();
-	}
-
 	private void givenLEDRingOfSize(int size) {
 		leds = new boolean[size];
 	}
 
 	private void whenLevelIsSetTo(int level) {
-//		int size = leds.length;
-//		int highestIndexToTurnOn = size * (level/100);
+		int size = leds.length;
+		int highestIndexToTurnOn = size * (level/100);
+		for (int i = 0; i < leds.length; i++) {
+			if (i/leds.length < level) {
+				leds[i] = true;
+			}
+		}
 
 		if (level == 0) {
 			leds[0] = false;
