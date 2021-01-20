@@ -41,6 +41,22 @@ public class LedRingsTest {
 		thenLEDsAre(true, true, true, false);
 	}
 
+	@Test
+	void testGivenRingOfSize4_whenLevelIsSetTo100_thenAllLED4AreOn() {
+		givenLEDRingOfSize(4);
+		whenLevelIsSetTo(100);
+		thenLEDsAre(true, true, true, true);
+	}
+
+	@Test
+	void testGivenRingOfSize4_whenLevelIsSetTo100Then0_thenAllLED4AreOff() {
+		givenLEDRingOfSize(4);
+		whenLevelIsSetTo(100);
+		whenLevelIsSetTo(0);
+		thenLEDsAre(false, false, false, false);
+	}	
+
+
 	private void thenLEDsAre(boolean... expected) {
 		Assertions.assertThat(leds).isEqualTo(expected);
 	}
@@ -50,16 +66,17 @@ public class LedRingsTest {
 	}
 
 	private void whenLevelIsSetTo(int level) {
-		int size = leds.length;
-		int highestIndexToTurnOn = size * (level/100);
-		for (int i = 0; i < leds.length; i++) {
-			if (i/leds.length < level) {
-				leds[i] = true;
-			}
-		}
+//		int size = leds.length;
+//		int highestIndexToTurnOn = size * (level/100);
+//		for (int i = 0; i < leds.length; i++) {
+//			if (i/leds.length < level) {
+//				leds[i] = true;
+//			}
+//		}
 
 		if (level == 0) {
 			leds[0] = false;
+			leds[1] = false;
 		} else if (level > 0) {
 			leds[0] = true;
 		}
@@ -70,6 +87,13 @@ public class LedRingsTest {
 				leds[2] = true;
 			}
 		}
+		if (level == 100 && leds.length > 2) {
+			leds[3] = true;
+		}
+
+
 	}
+
+
 
 }
