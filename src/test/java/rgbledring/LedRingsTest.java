@@ -35,9 +35,9 @@ public class LedRingsTest {
 	}
 
 	@Test
-	void testGivenRingOfSize4_whenLevelIsSetTo80_thenOnlyLED4IsOff() {
+	void testGivenRingOfSize4_whenLevelIsSetTo51_thenOnlyLED4IsOff() {
 		givenLEDRingOfSize(4);
-		whenLevelIsSetTo(70);
+		whenLevelIsSetTo(51);
 		thenLEDsAre(true, true, true, false);
 	}
 
@@ -58,6 +58,9 @@ public class LedRingsTest {
 	}
 
 	private void whenLevelIsSetTo(int level) {
+//		int size = leds.length;
+//		int highestIndexToTurnOn = size * (level/100);
+
 		if (level == 0) {
 			leds[0] = false;
 		} else if (level > 0) {
@@ -66,8 +69,10 @@ public class LedRingsTest {
 		if (level > 50) {
 			leds[0] = true;
 			leds[1] = true;
+			if (leds.length > 2) {
+				leds[2] = true;
+			}
 		}
 	}
 
 }
-
