@@ -1,10 +1,6 @@
 package rgbledring;
 
-public class RGBLEDRing {
-	
-	public RGBLEDRing(int size) {
-		
-	}
+public class LED {
 	
   public boolean slider1Value(int input) {
   	if (input == 0) {
