@@ -13,10 +13,6 @@ public class LedRingsTest {
 		thenLEDsAre(true, true);
 	}
 
-	private void thenLEDsAre(boolean... b) {
-		Assertions.assertThat(leds).isEqualTo(b);
-	}
-
 	@Test
 	void testGivenRingOfSize2_whenLevelIsSetTo0_thenLED1And2AreOff() {
 		givenLEDRingOfSize(2);
@@ -25,10 +21,28 @@ public class LedRingsTest {
 	}
 
 	@Test
-	void testGivenRingOfSize2_whenLevelIsSetTo0to50_thenLED1OnAndLed2Off() {
+	void testGivenRingOfSize2_whenLevelIsSetTo2_thenLED1OnAndLed2Off() {
 		givenLEDRingOfSize(2);
 		whenLevelIsSetTo(2);
 		thenLEDsAre(true, false);
+	}
+
+	@Test
+	void testGivenRingOfSize4_whenLevelIsSetTo0_thenAllLEDsAreOff() {
+		givenLEDRingOfSize(4);
+		whenLevelIsSetTo(0);
+		thenLEDsAre(false, false, false, false);
+	}
+
+	@Test
+	void testGivenRingOfSize4_whenLevelIsSetTo80_thenOnlyLED4IsOff() {
+		givenLEDRingOfSize(4);
+		whenLevelIsSetTo(70);
+		thenLEDsAre(true, true, true, false);
+	}
+
+	private void thenLEDsAre(boolean... expected) {
+		Assertions.assertThat(leds).isEqualTo(expected);
 	}
 
 	private void thenLEDIsOn(int index) {
