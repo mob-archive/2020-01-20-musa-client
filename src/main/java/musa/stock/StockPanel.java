@@ -49,7 +49,6 @@ public class StockPanel extends AbstractPanel implements TitleProvider {
 		add(makeLabel("Profibility"));
 		profibilitySlider = makeSlider();
 		add(profibilitySlider);
-
 		add(makeLabel("AvailableAmount"));
 		availableAmountSlider = makeSlider();
 		add(availableAmountSlider);
