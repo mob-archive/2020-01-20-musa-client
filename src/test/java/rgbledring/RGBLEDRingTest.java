@@ -15,9 +15,9 @@ public class RGBLEDRingTest {
     @Test
     public void testFirstLedIsOn() {
     	
-    	RGBLEDRing ring = new RGBLEDRing(1);
+    	RGBLEDRing led = new RGBLEDRing(1);
     	
-        boolean led1On = ring.slider1Value(5);
+        boolean led1On = led.slider1Value(5);
         
         assertTrue(led1On);
     }
@@ -25,9 +25,9 @@ public class RGBLEDRingTest {
     @Test
     public void testFirstLedIsOff() {
     	
-    	RGBLEDRing ring = new RGBLEDRing(1);
+    	RGBLEDRing led = new RGBLEDRing(1);
     	
-    	boolean led1Off = ring.slider1Value(0);
+    	boolean led1Off = led.slider1Value(0);
     	
     	assertThat(led1Off).isFalse();
     }
