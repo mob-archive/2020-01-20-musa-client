@@ -1,11 +1,10 @@
 package rgbledring;
 
-import java.util.function.IntPredicate;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class LedRingsTest {
+	private boolean[] leds;
 	private boolean led1;
 	private boolean led2;
 	
@@ -51,17 +50,22 @@ public class LedRingsTest {
 	}	
 
 	private void givenLEDRingOfSize(int size) {
+		leds = new boolean[size];
 	}
 
 	private void whenLevelIsSetTo(int level) {
 		if (level == 0) {
+			leds[0] = false;
 			led1 = false;
-		}else if (level > 0) {
+		} else if (level > 0) {
+			leds[0] = true;
 			led1 = true;
 		}
 		if (level > 50) {
 			led1 = true;
+			leds[0] = true;
 			led2 = true;
+			leds[1] = true;
 		}
 	}
 
