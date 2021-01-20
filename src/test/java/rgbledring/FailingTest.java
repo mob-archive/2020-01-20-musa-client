@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 // Daniel
 // Christoph
 // marc
+// Simon
 class FailingTest {
 
 	@Test
